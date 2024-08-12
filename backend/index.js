@@ -15,7 +15,7 @@ const users = [
     {
         id: 1,
         username: 'user1',
-        password: bcrypt.hashSync('password1', 8), // Passwords should be hashed
+        password: bcrypt.hashSync('password1', 8), 
     },
     {
         id: 2,
@@ -44,8 +44,8 @@ app.post('/login', async (req, res) => {
 
 app.get('/protected', (req, res) => {
     // Get the token from the Authorization header
-    const header = req.headers['authorization'];
-    const token = header.replace('Bearer','')
+    const token = req.headers['authorization'];
+   
 
     if (!token) {
       return res.status(401).json({ message: 'No token provided' });

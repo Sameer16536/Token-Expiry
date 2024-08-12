@@ -1,14 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import axios from 'axios'
 
 
 const LoginPage = () => {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
-  const sendDetails = axios
+
   useEffect(()=>{
-    axios.post('http:localhost:3000/login',{email,password})
-    .then(response => console.log(response.data))
+    const sendDetails =()=>{
+      axios.post('http:localhost:3000/login',{email,password})
+      .then(response => console.log(response.data))
+    }
+    
+    setemail('')
+    setPassword('')
+    
     sendDetails
   },[email,password])
   return (

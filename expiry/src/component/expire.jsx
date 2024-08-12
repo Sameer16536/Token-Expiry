@@ -16,7 +16,7 @@ const expire = ({logout}) => {
             const currentTime = Math.floor(Date.now()/1000)
 
             //check for expiry::
-            if(decodedToken.exp < currentTime){
+            if(decodedToken.exp >= currentTime){
                 logout()
             }
         }
